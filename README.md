@@ -9,7 +9,6 @@
 - You can Download VIA on this [link](https://github.com/the-via/releases/releases)
 - or you can go to this [web](https://usevia.app/)
 
-
 ## Auto Detect VIA
 this Device can automatically detect on VIA, just need PC with Intercet Connection
 - Connect your macropad to PC
@@ -69,5 +68,5 @@ or you can see video [youtube](https://youtu.be/GtSeo69Y0Zw)
 https://github.com/juarendra/Lianumpad-QMK-VIA/assets/43043633/daf05cb3-5ffb-4896-910a-576f78afdfc5
 
 ## Pinout Hardware
-[Pinout Hardaware](https://github.com/juarendra/30pad-QMK-VIA/blob/main/DOC/WIRING%20MACROPAD%2030PAD%20BY%20POSITRON%20ELEKTRONIK.pdf)
+[Pinout Hardaware](https://github.com/juarendra/12pad-QMK-VIA/blob/main/DOC/WIRING%20MACROPAD%2012PAD%20BY%20POSITRON%20ELEKTRONIK.drawio.pdf)
 
