@@ -26,7 +26,7 @@ or you can load manually json file like a library for detect this macropad
 - If nothing happend , do it again from first 
 
 ## Cara Setting Knob
-- Untuk melakukan setting di knob perlu memasukan command berupa keycode qmk, Jadi cara nya sama dengan melakuykan setting dengan Any key seperti petunjuk pada link berikut: 
+Untuk melakukan setting di knob perlu memasukan command berupa keycode qmk, Jadi cara nya sama dengan melakuykan setting dengan Any key seperti petunjuk pada link berikut: 
 https://docs.keeb.io/via
 
 Here's some examples:
