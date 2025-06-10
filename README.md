@@ -1,10 +1,11 @@
-# 30pad-QMK-VIA
+# 12pad-QMK-VIA
 
 ## Spesification
 - STM32401 type C as Microcontroller
 - QMK Firmware
 - Support VIA, all key and knob can proggrammed
-- 30 x Hotswap Switch
+- 12 x Hotswap Switch
+- 1 x Knob Encoder
 ## VIA
 - You can Download VIA on this [link](https://github.com/the-via/releases/releases)
 - or you can go to this [web](https://usevia.app/)
