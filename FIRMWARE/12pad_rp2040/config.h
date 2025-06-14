@@ -1,6 +1,5 @@
 #pragma once
 #define DYNAMIC_KEYMAP_MACRO_COUNT 32
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
 #define DEBOUNCE 5
 
 #define ENCODERS_PAD_A {GP12}
