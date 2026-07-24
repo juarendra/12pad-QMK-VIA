@@ -1,7 +1,7 @@
 {
-  "name": "12pad",
-  "vendorId": "0xD010",
-  "productId": "0x1201",
+  "name": "Positron Electronic 12pad",
+  "vendorId": "0x1209",
+  "productId": "0x2012",
   "matrix": {
     "rows": 3,
     "cols": 5

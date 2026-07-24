@@ -1,7 +1,8 @@
 # 12pad-QMK-VIA
 
 ## Spesification
-- STM32401 type C as Microcontroller
+- STM32F401 type C as Microcontroller (WeAct Blackpill)
+- USB ID: VID `0x1209` / PID `0x2012` ([pid.codes](https://pid.codes), Positron Electronic 12pad)
 - QMK Firmware
 - Support VIA, all key and knob can proggrammed
 - 12 x Hotswap Switch
