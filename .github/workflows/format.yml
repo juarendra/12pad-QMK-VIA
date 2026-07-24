@@ -16,20 +16,20 @@ jobs:
 
       - name: Copy keyboard into qmk_firmware
         run: |
-          cp -r FIRMWARE/positron /qmk_firmware/keyboards/positron
-          rm -rf /qmk_firmware/keyboards/positron/12pad/keymaps/via
+          cp -r FIRMWARE/handwired/positron /qmk_firmware/keyboards/handwired/positron
+          rm -rf /qmk_firmware/keyboards/handwired/positron/12pad/keymaps/via
 
       - name: Run QMK formatters
         working-directory: /qmk_firmware
         run: |
-          find keyboards/positron/12pad -type f \( -name '*.c' -o -name '*.h' -o -name '*.mk' -o -name '*.md' \) -exec sed -i 's/\r$//' {} +
-          qmk format-json keyboards/positron/12pad/keyboard.json > /tmp/kb.json
-          mv /tmp/kb.json keyboards/positron/12pad/keyboard.json
-          qmk format-c keyboards/positron/12pad/config.h keyboards/positron/12pad/chconf.h keyboards/positron/12pad/keymaps/default/keymap.c
-          qmk format-text keyboards/positron/12pad/rules.mk keyboards/positron/12pad/readme.md keyboards/positron/12pad/keymaps/default/rules.mk
+          find keyboards/handwired/positron/12pad -type f \( -name '*.c' -o -name '*.h' -o -name '*.mk' -o -name '*.md' \) -exec sed -i 's/\r$//' {} +
+          qmk format-json keyboards/handwired/positron/12pad/keyboard.json > /tmp/kb.json
+          mv /tmp/kb.json keyboards/handwired/positron/12pad/keyboard.json
+          qmk format-c keyboards/handwired/positron/12pad/config.h keyboards/handwired/positron/12pad/chconf.h keyboards/handwired/positron/12pad/keymaps/default/keymap.c
+          qmk format-text keyboards/handwired/positron/12pad/rules.mk keyboards/handwired/positron/12pad/readme.md keyboards/handwired/positron/12pad/keymaps/default/rules.mk
 
       - name: Upload formatted keyboard
         uses: actions/upload-artifact@v4
         with:
           name: formatted-keyboard
-          path: /qmk_firmware/keyboards/positron/12pad/
+          path: /qmk_firmware/keyboards/handwired/positron/12pad/

@@ -3,7 +3,7 @@ name: Build 12pad firmware
 on:
   push:
     paths:
-      - "FIRMWARE/positron/**"
+      - "FIRMWARE/handwired/**"
       - ".github/workflows/build.yml"
   workflow_dispatch:
 
@@ -19,24 +19,24 @@ jobs:
         run: qmk setup -y -H /qmk_firmware qmk/qmk_firmware
 
       - name: Copy keyboard into qmk_firmware
-        run: cp -r FIRMWARE/positron /qmk_firmware/keyboards/positron
+        run: cp -r FIRMWARE/handwired/positron /qmk_firmware/keyboards/handwired/positron
 
       # via keymaps are not allowed upstream, so lint the tree exactly as
       # it would be submitted to qmk_firmware (without keymaps/via)
       - name: Lint (upstream subset)
         run: |
-          mv /qmk_firmware/keyboards/positron/12pad/keymaps/via /tmp/via
-          qmk lint -kb positron/12pad -km default --strict
-          mv /tmp/via /qmk_firmware/keyboards/positron/12pad/keymaps/via
+          mv /qmk_firmware/keyboards/handwired/positron/12pad/keymaps/via /tmp/via
+          qmk lint -kb handwired/positron/12pad -km default --strict
+          mv /tmp/via /qmk_firmware/keyboards/handwired/positron/12pad/keymaps/via
 
       - name: Compile default keymap
-        run: qmk compile -kb positron/12pad -km default
+        run: qmk compile -kb handwired/positron/12pad -km default
 
       - name: Compile via keymap
-        run: qmk compile -kb positron/12pad -km via
+        run: qmk compile -kb handwired/positron/12pad -km via
 
       - name: Upload firmware binaries
         uses: actions/upload-artifact@v4
         with:
           name: positron_12pad
-          path: /qmk_firmware/positron_12pad_*.bin
+          path: /qmk_firmware/handwired_positron_12pad_*.bin

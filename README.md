@@ -86,10 +86,10 @@ Setelah flash, identitas USB berubah menjadi **"Positron Electronic 12pad"** —
 <details>
 <summary><b>Build dari source</b></summary>
 
-Source keyboard: [`FIRMWARE/positron/12pad/`](FIRMWARE/positron/12pad). Salin ke `qmk_firmware/keyboards/positron/12pad`, lalu:
+Source keyboard: [`FIRMWARE/handwired/positron/12pad/`](FIRMWARE/handwired/positron/12pad). Salin ke `qmk_firmware/keyboards/handwired/positron/12pad`, lalu:
 
 ```sh
-qmk compile -kb positron/12pad -km via
+qmk compile -kb handwired/positron/12pad -km via
 ```
 
 Setiap push ke folder firmware juga dibuild otomatis oleh [GitHub Actions](https://github.com/juarendra/12pad-QMK-VIA/actions) — unduh `.bin` dari artifact.
