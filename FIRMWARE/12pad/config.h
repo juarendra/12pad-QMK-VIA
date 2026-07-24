@@ -15,10 +15,6 @@
 */
 #pragma once
 
-//#include "config_common.h"
-#define MATRIX_ROWS  3
-#define MATRIX_COLS  10
-
 #define WEAR_LEVELING_LOGICAL_SIZE 4096
 #define WEAR_LEVELING_BACKING_SIZE 8192
 #define DYNAMIC_KEYMAP_MACRO_COUNT 32
