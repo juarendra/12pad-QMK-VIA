@@ -3,7 +3,7 @@ name: Build 12pad firmware
 on:
   push:
     paths:
-      - "FIRMWARE/12pad/**"
+      - "FIRMWARE/positron/**"
       - ".github/workflows/build.yml"
   workflow_dispatch:
 
@@ -19,13 +19,19 @@ jobs:
         run: qmk setup -y -H /qmk_firmware qmk/qmk_firmware
 
       - name: Copy keyboard into qmk_firmware
-        run: cp -r FIRMWARE/12pad /qmk_firmware/keyboards/12pad
+        run: cp -r FIRMWARE/positron /qmk_firmware/keyboards/positron
 
-      - name: Compile
-        run: qmk compile -kb 12pad -km default
+      - name: Lint
+        run: qmk lint -kb positron/12pad -km via --strict
 
-      - name: Upload firmware binary
+      - name: Compile default keymap
+        run: qmk compile -kb positron/12pad -km default
+
+      - name: Compile via keymap
+        run: qmk compile -kb positron/12pad -km via
+
+      - name: Upload firmware binaries
         uses: actions/upload-artifact@v4
         with:
-          name: 12pad_default
-          path: /qmk_firmware/12pad_default.bin
+          name: positron_12pad
+          path: /qmk_firmware/positron_12pad_*.bin
