@@ -64,8 +64,8 @@ Tekan knob untuk berpindah layer (0 → 1 → … → 5 → 0).
 
 | File | Untuk |
 |---|---|
-| `positron_12pad_via.bin` | ✅ **Pengguna STM32F401** — VIA aktif |
-| `positron_12pad_default.bin` | STM32F401, keymap default tanpa VIA |
+| `handwired_positron_12pad_via.bin` | ✅ **Pengguna STM32F401** — VIA aktif |
+| `handwired_positron_12pad_default.bin` | STM32F401, keymap default tanpa VIA |
 | `12pad_rp2040_default.uf2` | Varian RP2040 |
 
 <details>
@@ -77,7 +77,7 @@ Tekan knob untuk berpindah layer (0 → 1 → … → 5 → 0).
 Atau lewat terminal:
 
 ```sh
-dfu-util -a 0 -d 0483:df11 -s 0x08000000:leave -D positron_12pad_via.bin
+dfu-util -a 0 -d 0483:df11 -s 0x08000000:leave -D handwired_positron_12pad_via.bin
 ```
 
 Setelah flash, identitas USB berubah menjadi **"Positron Electronic 12pad"** — load ulang `12pad_via_definitions.json` terbaru di VIA bila sebelumnya pernah sideload.
