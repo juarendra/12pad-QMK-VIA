@@ -1,34 +1,78 @@
-# 12pad-QMK-VIA
+<div align="center">
 
-Macropad 12 tombol + 1 knob encoder oleh **Positron Electronic**.
+<img src="DOC/12pad.png" width="420" alt="Macropad 12pad">
 
-## Spesification
-- STM32F401 (WeAct Blackpill, USB Type-C) as Microcontroller
-- QMK Firmware
-- Support VIA, all keys and knob can be programmed
-- 12 x Hotswap Switch
-- 1 x Knob Encoder
-- 12 x RGB (WS2812), 6 layers, 32 macros
-- USB ID: VID `0x1209` / PID `0x2012` ([pid.codes](https://pid.codes), Positron Electronic 12pad)
+# 12pad
 
-## Buku Panduan (User Manual)
-- **[Buku Panduan 12pad (PDF)](DOC/Buku%20Panduan%2012pad.pdf)** — peta 6 layer, cara setting VIA, macro, RGB, dan update firmware
-- [Kertas Panduan 12pad (PDF)](Kertas%20Panduan%2012pad.pdf)
+**Macropad 12 tombol hotswap + knob putar — semua tombol bisa diprogram lewat VIA, tanpa driver, tanpa coding.**
 
-## Firmware
-**Unduh firmware siap pakai di halaman [Releases](https://github.com/juarendra/12pad-QMK-VIA/releases/latest)** (disarankan), atau dari folder [`FIRMWARE/`](FIRMWARE):
+oleh [Positron Electronic](https://github.com/juarendra)
 
-| File | Keterangan |
+[![Build](https://github.com/juarendra/12pad-QMK-VIA/actions/workflows/build.yml/badge.svg)](https://github.com/juarendra/12pad-QMK-VIA/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/juarendra/12pad-QMK-VIA?label=firmware&color=e8a33d)](https://github.com/juarendra/12pad-QMK-VIA/releases/latest)
+[![QMK](https://img.shields.io/badge/powered%20by-QMK-333333)](https://qmk.fm)
+[![VIA](https://img.shields.io/badge/configurable-VIA-5f6ce0)](https://usevia.app)
+[![License](https://img.shields.io/badge/license-GPL--2.0-blue)](LICENSE)
+
+[⬇️ Unduh Firmware](https://github.com/juarendra/12pad-QMK-VIA/releases/latest) ·
+[📖 Buku Panduan](DOC/Buku%20Panduan%2012pad.pdf) ·
+[🎛️ Buka VIA](https://usevia.app) ·
+[🔌 Wiring](DOC/WIRING%20MACROPAD%2012PAD%20BY%20POSITRON%20ELEKTRONIK.drawio.pdf)
+
+</div>
+
+---
+
+## ✨ Fitur
+
+| | |
 |---|---|
-| `positron_12pad_via.bin` | **Untuk pengguna** — VIA aktif (STM32F401) |
-| `positron_12pad_default.bin` | Keymap default tanpa VIA (STM32F401) |
+| ⌨️ **12 tombol hotswap** | Ganti switch tanpa solder |
+| 🎚️ **Knob rotary encoder** | Putar = scroll/volume, tekan = pindah layer — bebas diatur |
+| 🌈 **RGB per tombol** | 40+ efek, atur dari VIA atau langsung dari macropad (Layer 5) |
+| 🧠 **6 layer × 32 macro** | Profil per aplikasi, tersimpan di dalam macropad |
+| 🔧 **QMK + VIA** | Atur keymap real-time di [usevia.app](https://usevia.app), tanpa install apa pun |
+| 🔌 **STM32F401 · USB-C** | WeAct Blackpill, identitas USB resmi `0x1209:0x2012` |
+
+<div align="center">
+<img src="DOC/12pad1.png" width="45%"> <img src="DOC/12pad2.png" width="45%">
+</div>
+
+## 🚀 Mulai dalam 3 langkah
+
+1. **Colok USB-C** — langsung dikenali sebagai keyboard, tanpa driver
+2. **Buka [usevia.app](https://usevia.app)** di Chrome/Edge (internet menyala)
+3. **Klik & atur** — pilih tombol di layar, ganti fungsinya, tersimpan otomatis di macropad
+
+> VIA belum mendeteksi? Lihat [Load JSON File](#-load-json-file-sideload) di bawah.
+
+📖 Panduan lengkap (peta layer, macro, RGB, troubleshooting): **[Buku Panduan 12pad (PDF)](DOC/Buku%20Panduan%2012pad.pdf)**
+
+## ⌨️ Keymap bawaan
+
+Tekan knob untuk berpindah layer (0 → 1 → … → 5 → 0).
+
+| Layer | Isi |
+|---|---|
+| **0** | `F1`–`F12` — siap dipetakan ke shortcut aplikasi · putar knob = Page Up/Down |
+| **1–4** | Kosong (transparan) — kanvas bebas untuk profil per aplikasi |
+| **5** | Panel kontrol RGB: on/off, efek, kecepatan, saturasi, hue, kecerahan |
+
+## 📦 Firmware
+
+**Unduh siap pakai:** [**Releases — versi terbaru**](https://github.com/juarendra/12pad-QMK-VIA/releases/latest)
+
+| File | Untuk |
+|---|---|
+| `positron_12pad_via.bin` | ✅ **Pengguna STM32F401** — VIA aktif |
+| `positron_12pad_default.bin` | STM32F401, keymap default tanpa VIA |
 | `12pad_rp2040_default.uf2` | Varian RP2040 |
 
-Source code keyboard: [`FIRMWARE/positron/12pad/`](FIRMWARE/positron/12pad) — build otomatis via GitHub Actions setiap ada perubahan (unduh hasil build terbaru di tab Actions → artifact).
+<details>
+<summary><b>Cara flash (STM32)</b></summary>
 
-### Cara Flash (STM32)
-1. Masuk bootloader: cabut USB, **tahan knob**, colok USB (atau tahan tombol `BOOT0` di board saat colok USB)
-2. Buka [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases), open file `.bin`, klik **Flash**
+1. Masuk bootloader: cabut USB, **tahan knob**, colok USB — atau tahan tombol `BOOT0` di board saat colok USB
+2. Buka [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) → Open file `.bin` → **Flash**
 
 Atau lewat terminal:
 
@@ -36,74 +80,67 @@ Atau lewat terminal:
 dfu-util -a 0 -d 0483:df11 -s 0x08000000:leave -D positron_12pad_via.bin
 ```
 
-## Status Pendaftaran Resmi (Roadmap Autodetect)
-1. **USB VID/PID sendiri** — `0x1209:0x2012` diajukan ke [pid.codes PR #1249](https://github.com/pidcodes/pidcodes.github.com/pull/1249) ✅ checks lulus, menunggu merge
-2. **QMK upstream** — keyboard `positron/12pad` diajukan ke [qmk/qmk_firmware PR #26362](https://github.com/qmk/qmk_firmware/pull/26362) ✅ CI lulus, menunggu review
-3. **VIA autodetect** — setelah QMK merge, definisi V3 di-PR ke [the-via/keyboards](https://github.com/the-via/keyboards) (file sudah siap: `12pad_via_definitions.json`)
+Setelah flash, identitas USB berubah menjadi **"Positron Electronic 12pad"** — load ulang `12pad_via_definitions.json` terbaru di VIA bila sebelumnya pernah sideload.
+</details>
 
-Sebelum tahap 3 selesai, gunakan sideload JSON (lihat "Load JSON File" di bawah).
+<details>
+<summary><b>Build dari source</b></summary>
 
-## VIA
-- You can download VIA from this [link](https://github.com/the-via/releases/releases)
-- or you can go to this [web](https://usevia.app/)
+Source keyboard: [`FIRMWARE/positron/12pad/`](FIRMWARE/positron/12pad). Salin ke `qmk_firmware/keyboards/positron/12pad`, lalu:
 
-## Auto Detect VIA
-This device can be automatically detected by VIA, just need a PC with an internet connection:
-- Connect your macropad to the PC
-- Open VIA
-- It will auto detect
+```sh
+qmk compile -kb positron/12pad -km via
+```
 
-## Load JSON File
-Or you can load the JSON file manually, like a library for detecting this macropad:
-- Connect your macropad to the PC
-- Open VIA
-- In tab Settings, enable "Show Design Tab"
-- Open the Design tab
-- Load the file named `12pad_via_definitions.json`
-- Open the Configure tab to set up your macropad
-- If nothing happens, repeat from the first step
+Setiap push ke folder firmware juga dibuild otomatis oleh [GitHub Actions](https://github.com/juarendra/12pad-QMK-VIA/actions) — unduh `.bin` dari artifact.
+</details>
 
-## Cara Setting Knob
-Untuk melakukan setting di knob perlu memasukkan command berupa keycode QMK. Jadi caranya sama dengan melakukan setting dengan Any key seperti petunjuk pada link berikut:
-https://docs.keeb.io/via
+## 🎛️ VIA
 
-Here are some examples:
+### Auto detect
+Colok macropad → buka [usevia.app](https://usevia.app) atau [aplikasi VIA](https://github.com/the-via/releases/releases) dengan internet aktif → terdeteksi otomatis.
 
-- LALT(KC_TAB) - Sends Alt-Tab
-- LCTL(KC_C) - Sends Ctrl-C
-- LGUI(KC_C) - Sends Cmd-C or Win-C
-- LSFT(LCTL(KC_END)) - Sends Shift-Ctrl-End
-- MO(1) - Momentarily turn on layer 1
-- LCA(KC_DEL) - Sends Ctrl-Alt-Del
-- MT(MOD_RSFT, KC_ENT) - Sends Shift if held, Enter if tapped
-- M0 … M31 - Run macro 0–31
+### 📂 Load JSON File (sideload)
+Kalau belum terdeteksi (definisi resmi masih dalam proses):
 
-## Link Keycode QMK
-- mouse: https://github.com/qmk/qmk_firmware/blob/master/docs/features/mouse_keys.md
-- keyboard: https://docs.qmk.fm/keycodes
+1. Colok macropad, buka VIA
+2. Tab **Settings** → aktifkan **Show Design Tab**
+3. Tab **Design** → **Load** file [`12pad_via_definitions.json`](12pad_via_definitions.json)
+4. Buka tab **Configure** — siap diatur
+5. Masih "searching"? Cabut-colok USB, ulangi dari langkah 3
 
-## How To Use MACRO
-- Read the guide: [MACRO VIA USAGE (PDF)](DOC/MACRO%20VIA%20USAGE.pdf)
-- Or read this [web tutorial](https://www.keychron.com/blogs/archived/how-to-use-via-to-program-your-keyboard)
-- Or watch this [YouTube video](https://youtu.be/GtSeo69Y0Zw)
+### 🎚️ Setting knob
+Knob tampil sebagai 3 "tombol" di VIA: putar kiri · tekan · putar kanan. Untuk kombinasi khusus pakai **Any** (kategori Special) dengan keycode QMK:
 
-## Preview Design
-<p align="center">
-    <img src="DOC/12pad.png" width="75%" height="75%">
-    <img src="DOC/12pad1.png" width="75%" height="75%">
-    <img src="DOC/12pad2.png" width="75%" height="75%">
-    <img src="DOC/12pad3.png" width="75%" height="75%">
-</p>
+| Keycode | Hasil |
+|---|---|
+| `LALT(KC_TAB)` | Alt + Tab |
+| `LCTL(KC_C)` | Ctrl + C |
+| `LSFT(LCTL(KC_END))` | Shift + Ctrl + End |
+| `MT(MOD_RSFT, KC_ENT)` | Tahan = Shift, ketuk = Enter |
+| `MO(1)` / `TO(2)` | Pindah layer sementara / permanen |
+| `M0` … `M31` | Jalankan macro |
 
-## Tutorial VIA Usage
-- https://docs.keeb.io/via
+Referensi: [Keycode QMK](https://docs.qmk.fm/keycodes) · [Panduan VIA](https://docs.keeb.io/via) · [Macro VIA (PDF)](DOC/MACRO%20VIA%20USAGE.pdf) · [Video tutorial](https://youtu.be/GtSeo69Y0Zw)
 
-## Preview VIA
+## 🛠️ Hardware
 
-https://github.com/juarendra/Lianumpad-QMK-VIA/assets/43043633/daf05cb3-5ffb-4896-910a-576f78afdfc5
+- [Dimensi (PDF)](HARDWARE/12pad_dimension.pdf) · [Model 3D STEP](HARDWARE/12pad.step)
+- [Case 3D-printable (STL)](HARDWARE/case) — top & bottom, tersedia versi terbelah 2 untuk printer kecil
+- [Wiring diagram](DOC/WIRING%20MACROPAD%2012PAD%20BY%20POSITRON%20ELEKTRONIK.drawio.pdf)
 
-## Pinout Hardware
-[Pinout Hardware](DOC/WIRING%20MACROPAD%2012PAD%20BY%20POSITRON%20ELEKTRONIK.drawio.pdf)
+## 🗺️ Status Pendaftaran Resmi
 
-## License
-Firmware is licensed under [GPL-2.0](LICENSE).
+| Tahap | Status |
+|---|---|
+| USB VID/PID `0x1209:0x2012` — [pid.codes #1249](https://github.com/pidcodes/pidcodes.github.com/pull/1249) | ✅ checks lulus, menunggu merge |
+| QMK upstream — [qmk_firmware #26362](https://github.com/qmk/qmk_firmware/pull/26362) | ✅ CI lulus, menunggu review |
+| VIA autodetect global — PR ke [the-via/keyboards](https://github.com/the-via/keyboards) | ⏳ setelah QMK merge (file sudah siap) |
+
+## 📄 License
+
+Firmware dilisensikan di bawah [GPL-2.0](LICENSE).
+
+<div align="center">
+<sub>Dibuat dengan ☕ oleh <b>Positron Electronic</b> · Indonesia</sub>
+</div>
