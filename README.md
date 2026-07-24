@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="DOC/12pad.png" width="420" alt="Macropad 12pad">
+<img src="DOC/asli4.jpeg" width="560" alt="Macropad 12pad">
 
 # 12pad
 
@@ -35,7 +35,7 @@ oleh [Positron Electronic](https://github.com/juarendra)
 | 🔌 **STM32F401 · USB-C** | WeAct Blackpill, identitas USB resmi `0x1209:0x2012` |
 
 <div align="center">
-<img src="DOC/12pad1.png" width="45%"> <img src="DOC/12pad2.png" width="45%">
+<img src="DOC/asli1.jpeg" width="45%"> <img src="DOC/asli2.jpeg" width="45%">
 </div>
 
 ## 🚀 Mulai dalam 3 langkah
