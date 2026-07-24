@@ -16,7 +16,7 @@ Macropad 12 tombol + 1 knob encoder oleh **Positron Electronic**.
 - [Kertas Panduan 12pad (PDF)](Kertas%20Panduan%2012pad.pdf)
 
 ## Firmware
-Firmware siap pakai ada di folder [`FIRMWARE/`](FIRMWARE):
+**Unduh firmware siap pakai di halaman [Releases](https://github.com/juarendra/12pad-QMK-VIA/releases/latest)** (disarankan), atau dari folder [`FIRMWARE/`](FIRMWARE):
 
 | File | Keterangan |
 |---|---|
