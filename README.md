@@ -11,6 +11,13 @@
 - You can Download VIA on this [link](https://github.com/the-via/releases/releases)
 - or you can go to this [web](https://usevia.app/)
 
+## Status Pendaftaran Resmi (Roadmap Autodetect)
+1. **USB VID/PID sendiri** — `0x1209:0x2012` diajukan ke [pid.codes PR #1249](https://github.com/pidcodes/pidcodes.github.com/pull/1249)
+2. **QMK upstream** — keyboard `positron/12pad` diajukan ke [qmk/qmk_firmware](https://github.com/qmk/qmk_firmware)
+3. **VIA autodetect** — setelah QMK merge, definisi V3 di-PR ke [the-via/keyboards](https://github.com/the-via/keyboards) (file sudah siap: `12pad_via_definitions.json`)
+
+Sebelum tahap 3 selesai, gunakan sideload JSON (lihat "Load JSON File" di bawah).
+
 ## Auto Detect VIA
 this Device can automatically detect on VIA, just need PC with Intercet Connection
 - Connect your macropad to PC
