@@ -1,12 +1,16 @@
 {
     "keyboard_name": "12pad",
-    "manufacturer": "Positron Electronik",
+    "manufacturer": "Positron Electronic",
     "url": "https://github.com/juarendra/12pad-QMK-VIA",
-    "maintainer": "juarendra ramadhani",
+    "maintainer": "juarendra",
+    "development_board": "blackpill_f401",
     "usb": {
-        "vid": "0xD010",
-        "pid": "0x1201",
-        "device_version": "0.0.1"
+        "vid": "0x1209",
+        "pid": "0x2012",
+        "device_version": "1.0.0",
+        "shared_endpoint": {
+            "keyboard": true
+        }
     },
     "rgb_matrix": {
         "animations": {
