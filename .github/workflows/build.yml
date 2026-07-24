@@ -1,0 +1,31 @@
+name: Build 12pad firmware
+
+on:
+  push:
+    paths:
+      - "FIRMWARE/12pad/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/qmk/qmk_cli:latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup qmk_firmware
+        run: qmk setup -y -H /qmk_firmware qmk/qmk_firmware
+
+      - name: Copy keyboard into qmk_firmware
+        run: cp -r FIRMWARE/12pad /qmk_firmware/keyboards/12pad
+
+      - name: Compile
+        run: qmk compile -kb 12pad -km default
+
+      - name: Upload firmware binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: 12pad_default
+          path: /qmk_firmware/12pad_default.bin
